@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project2/home.dart';
 
 void main() {
   runApp(TravelApp());
@@ -27,9 +28,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('TravelApp'),
-      // ),
+
       body: Stack(children: [
         Positioned.fill(
             child: Image.network(
@@ -59,35 +58,31 @@ class _HomePageState extends State<HomePage> {
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Padding(padding: EdgeInsets.only(top: 100)),
+            Padding(padding: EdgeInsets.only(top: 360)),
             Text(
-               '''Our app is designed to help you seamlessly plan and organize your journeys, ensuring that every adventure is an unforgettable experience.''',
-               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.white,
-              fontWeight: FontWeight.bold),
+              '''Our app is designed to help you seamlessly plan and organize your journeys, ensuring that every adventure is an unforgettable experience.''',
+              textAlign: TextAlign.center,
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
+            Padding(padding: EdgeInsets.all(100)),
             ElevatedButton(
-              onPressed: (){
-
-              }, 
-              child: Container(
-                height: 50,
-                width: 200,
-                color: Colors.white,
-              ))
+              style: ElevatedButton.styleFrom(
+                primary: Colors.white,
+                onPrimary: Colors.black
+              ),
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+                },
+                child: Container(
+                  height: 50,
+                  width: 150,
+                  child: Center(
+                    child: Text('LETS GET STARTED', style: TextStyle(fontWeight: FontWeight.bold),),
+                  ),
+                )),
           ],
-        ))
-        
-        // Positioned.fill(
-        //     child: Align(
-        //   alignment: Alignment.center,
-        //   child: Text(
-        //     '''Our app is designed to help you seamlessly plan and
-        //     organize your journeys, ensuring that every adventure
-        //     is an unforgettable experience.''',
-        //     style: TextStyle(color: Colors.white),
-        //   ),
-        // )),
+        )),
       ]),
     );
   }
